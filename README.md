@@ -191,7 +191,7 @@ my-api-server/
 ---
 
 ### 🖼️ Coverage Report Screenshot
-![API](.assets/APIs.png)
+![APIs ](./assets/api-get.png)
 
 ![Test Coverage Report](./assets/test.png) 
 
