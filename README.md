@@ -135,10 +135,17 @@ my-api-server/
 │   └── Book.js
 ├── routes/
 │   └── bookRoutes.js
+├── tests/
+│   ├── api/
+│   │   └── book.test.js
+│   └── setup/
+│       └── db.js
 ├── .env
-├── server.js
+├── .gitignore
 ├── package.json
+├── server.js
 └── README.md
+
 ```
 
 ---
@@ -152,3 +159,52 @@ my-api-server/
 📦 Ready for GitHub submission
 
 ---
+
+
+## 🧪 Testing & Coverage
+
+### ✅ Testing Tools Used
+
+- **Jest** — JavaScript testing framework  
+- **Supertest** — for HTTP assertions  
+- **mongodb-memory-server** — to run integration tests without touching real DB  
+
+---
+
+### 🧪 Types of Tests Written
+
+- **Unit Tests** – testing database/model logic and route logic (mocked)  
+- **Integration Tests** – full CRUD tests against an in-memory MongoDB  
+- **API Tests** – endpoint behavior verification (POST, GET, PUT, DELETE)  
+
+---
+
+### 📈 Test Coverage Achieved
+
+- ✅ **Statements:** 79%+  
+- ✅ **Branches:** 37%+  
+- ✅ **Functions:** 70%+  
+- ✅ **Lines:** 80%+  
+
+> ✅ Meets the required 70%+ minimum for assignment.
+
+---
+
+### 🖼️ Coverage Report Screenshot
+![API](.assets/postman get api call.png)
+
+![Test Coverage Report](./assets/test.png) 
+
+![MongoDb database](./assets/mongodb.png)
+
+
+---
+
+### 📦 Run Tests Locally
+
+```bash
+npm run test          # run all tests
+npm run test:coverage # run tests with coverage report
+
+# Own-API-Server-keploy-fellowship
+
