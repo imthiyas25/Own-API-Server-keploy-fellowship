@@ -191,7 +191,7 @@ my-api-server/
 ---
 
 ### 🖼️ Coverage Report Screenshot
-![API](.assets/postman get api call.png)
+![API](.assets/APIs.png)
 
 ![Test Coverage Report](./assets/test.png) 
 
