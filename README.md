@@ -1,37 +1,38 @@
-# Own-API-Server-keploy-fellowship
+# 📚 Own API Server – Keploy Fellowship Assessment 3
 
-# 📚 Book API Server
-
-A simple custom API for managing books using Node.js, Express, and MongoDB Atlas.
+A simple Book API server built with **Node.js**, **Express**, and **MongoDB Atlas**, now powered with testing and automation using **Jest**, **Supertest**, and **Keploy** for end-to-end validation and CI integration.
 
 ---
 
 ## 🔧 Technologies Used
 
-- Node.js
-- Express.js
-- MongoDB Atlas (Cloud)
-- Mongoose
-- curl (for testing)
+- Node.js & Express.js  
+- MongoDB Atlas (Cloud)  
+- Mongoose ODM  
+- Jest + Supertest (API Testing)  
+- Keploy (AI Test Generation & Replay)  
+- GitHub Actions (CI/CD)
 
 ---
 
-## 🚀 How to Run
+## 🚀 Getting Started
 
-1. Install dependencies:
+### 1️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-2. Create a `.env` file in the root folder and add:
+### 2️⃣ Setup Environment Variables
+
+Create a `.env` file in the root directory:
 
 ```
 MONGO_URI=your_mongodb_connection_url
 PORT=5000
 ```
 
-3. Start the server:
+### 3️⃣ Start the Server
 
 ```bash
 npm start
@@ -41,10 +42,10 @@ npm start
 
 ## 📡 API Endpoints
 
-### ✅ `GET /api/books`
-Fetch all books.
+### ✅ GET `/api/books`
 
-**Response:**
+Returns all books.
+
 ```json
 [
   {
@@ -58,10 +59,10 @@ Fetch all books.
 
 ---
 
-### ✅ `POST /api/books`
+### ✅ POST `/api/books`
+
 Add a new book.
 
-**Request Body:**
 ```json
 {
   "title": "1984",
@@ -72,24 +73,16 @@ Add a new book.
 
 ---
 
-### ✅ `PUT /api/books/:id`
-Update an existing book.
+### ✅ PUT `/api/books/:id`
 
-**Request Body:**
-```json
-{
-  "title": "New Title",
-  "author": "New Author",
-  "year": 2024
-}
-```
+Update an existing book.
 
 ---
 
-### ✅ `DELETE /api/books/:id`
+### ✅ DELETE `/api/books/:id`
+
 Delete a book by ID.
 
-**Response:**
 ```json
 {
   "message": "Book deleted"
@@ -101,23 +94,18 @@ Delete a book by ID.
 ## 🧪 curl Test Commands
 
 ```bash
-# GET all books
 curl http://localhost:5000/api/books
 
-# POST a book
-curl -X POST http://localhost:5000/api/books -H "Content-Type: application/json" -d "{\"title\":\"The Hobbit\", \"author\":\"J.R.R. Tolkien\", \"year\":1937}"
+curl -X POST http://localhost:5000/api/books \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"The Hobbit\", \"author\":\"J.R.R. Tolkien\", \"year\":1937}"
 
-# PUT (update) a book
-curl -X PUT http://localhost:5000/api/books/<book_id> -H "Content-Type: application/json" -d "{\"title\":\"Updated Title\", \"author\":\"Updated Author\", \"year\":2024}"
+curl -X PUT http://localhost:5000/api/books/<book_id> \
+  -H "Content-Type: application/json" \
+  -d "{\"title\":\"Updated Title\", \"author\":\"Updated Author\", \"year\":2024}"
 
-# DELETE a book
 curl -X DELETE http://localhost:5000/api/books/<book_id>
 ```
-
-Replace `<book_id>` with the actual `_id` you get from GET request.
-
----
-
 
 ---
 
@@ -148,28 +136,24 @@ MY-API-SERVER/
 │       └── db.js                  # 🧪 Test DB setup
 ├── .env                           # 🔐 Environment variables
 ├── .gitignore
-├── image.png                      # 🖼️ Screenshot or placeholder
 ├── package-lock.json
 ├── package.json
 ├── README.md
 ├── server.js                      # 🚀 Entry point of app
 └── swagger.js                     # 📄 Swagger (OpenAPI) setup
-
-
 ```
 
 ---
 
 ## ✅ Status
 
-✅ All 4 API endpoints implemented  
-✅ Tested with curl  
-✅ Connected to MongoDB Atlas  
-📝 API documented in this README  
-📦 Ready for GitHub submission
+- All CRUD endpoints working ✅  
+- MongoDB Atlas integrated ✅  
+- curl tested ✅  
+- Swagger Docs available at `/api-docs` ✅  
+- Ready for CI/CD ✅
 
 ---
-
 
 ## 🧪 Testing & Coverage
 
@@ -177,89 +161,81 @@ MY-API-SERVER/
 
 - **Jest** — JavaScript testing framework  
 - **Supertest** — for HTTP assertions  
-- **mongodb-memory-server** — to run integration tests without touching real DB  
-
----
+- **mongodb-memory-server** — in-memory MongoDB for isolated tests  
 
 ### 🧪 Types of Tests Written
 
-- **Unit Tests** – testing database/model logic and route logic (mocked)  
-- **Integration Tests** – full CRUD tests against an in-memory MongoDB  
-- **API Tests** – endpoint behavior verification (POST, GET, PUT, DELETE)  
+- **Unit Tests** — model and logic testing  
+- **Integration Tests** — real DB behavior  
+- **API Tests** — actual endpoint responses
+
+### 📈 Test Coverage
+
+- ✅ Statements: 79%  
+- ✅ Branches: 37%  
+- ✅ Functions: 70%  
+- ✅ Lines: 80%  
+> ✔️ Meets the minimum 70% requirement
+
+### 🖼️ Test Coverage Screenshots
+
+![API GET](./assets/api_get.png)  
+![Coverage Report](./assets/test.png)  
+![MongoDB](./assets/mongodb.png)
 
 ---
 
-### 📈 Test Coverage Achieved
-
-- ✅ **Statements:** 79%+  
-- ✅ **Branches:** 37%+  
-- ✅ **Functions:** 70%+  
-- ✅ **Lines:** 80%+  
-
-> ✅ Meets the required 70%+ minimum for assignment.
-
----
-
-### 🖼️ Coverage Report Screenshot
-![APIs](./assets/api_get.png)
-
-![Test Coverage Report](./assets/test.png) 
-
-![MongoDb database](./assets/mongodb.png)
-
-
----
----
-### 📦 Run Tests Locally
+## 📦 Run Tests Locally
 
 ```bash
-npm run test          # run all tests
-npm run test:coverage # run tests with coverage report
+npm run test            # run all tests
+npm run test:coverage   # generate coverage report
+```
 
-# Own-API-Server-keploy-fellowship
+---
 
-🧪 API Testing with Keploy (AI Testing ✅)
+## 🧪 Keploy AI Testing
 
-✅ Generated OpenAPI schema via Swagger (/api-docs-json)
+- ✅ Captured real curl requests
+- ✅ Generated OpenAPI schema automatically
+- ✅ Replayed all API interactions successfully
+- ✅ No test rejections
+- ✅ Used Swagger JSON as schema source
 
-✅ Used curl commands to simulate user interaction
+### 📸 Keploy Test Screenshots
 
-✅ Keploy captured real-time API interactions
+![Input of curl commands and schema](./assets/sc1.png)  
+![Primary Test case Generating](./assets/sc2.png)  
+![Keploy Agent Running in Background](./assets/sc3.png)  
+![Test Drives](./assets/sc4.png)  
+![Test Suites](./assets/sc5.png)  
+![Test Execution](./assets/sc6.png)  
+![Report via Email](./assets/sc7.png)
 
-✅ Successfully replayed and validated APIs with no test rejections
+---
 
-📸 Keploy Test Report Screenshot
+## 🔁 CI/CD Integration
 
-![Input of curl commands and schema](./assets/sc1.png)
-![Primary Test case Genrating](./assets/sc2.png)
-![Keploy Agent Running in Background](./assets/sc3.png)
-![Test Drives](./assets/sc4.png)
-![Test Suits](./assets/sc5.png)
-![Test Suites Execution](./assets/sc6.png)
-![Test Report generation through mail](./assets/sc7.png)
+- ✅ GitHub Actions CI runs on push to `main`  
+- ✅ Keploy tests and schema validations run automatically
 
+### 📄 GitHub Actions Config
 
+See: `.github/workflows/keploy.yml`
 
-Keploy successfully captured & validated all endpoints without errors.
+---
 
+## 🌐 Swagger / OpenAPI
 
-🔁 CI/CD Pipeline Integration
-✅ Integrated Keploy into GitHub Actions
+- Swagger UI: `http://localhost:5000/api-docs`  
+- JSON Schema: `/api-docs-json`
 
-✅ Runs on every push to main branch
+![Swagger UI](./assets/sc8.png)
 
-✅ Ensures API tests and schema validations pass
+---
 
-📄 GitHub Actions CI Configuration
-See: ./.github/workflows/Keploy.yml
+## 🙌 Author
 
-🌐 OpenAPI Schema & Swagger
-✅ Swagger UI hosted at /api-docs
+Built with ❤️ as part of [Keploy API Fellowship](https://keploy.io)
 
-![Swagger UI at http://localhost:5000/api-docs/ ](./assets/sc8.png)
-
-✅ Raw schema available at /api-docs-json
-
-Compatible with Postman / SwaggerHub / Keploy import
-
-# Own-API-Server-keploy-fellowship
+```
