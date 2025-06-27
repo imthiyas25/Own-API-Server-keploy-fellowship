@@ -118,33 +118,42 @@ Replace `<book_id>` with the actual `_id` you get from GET request.
 
 ---
 
-## 🌐 Frontend (Optional)
 
-This project is backend-only. If you want to build a simple frontend, consider using:
-
-- HTML + JS Fetch API
-- React + Axios
-
----
 
 ## 📂 Folder Structure
 
 ```
-my-api-server/
+MY-API-SERVER/
+├── .github/
+│   └── workflows/
+│       └── keploy.yml             # ✅ Keploy CI/CD workflow
+├── assets/                        # 📸 Screenshots (API, coverage, DB)
+├── coverage/                      # 📊 Jest test coverage output
+│   ├── clover.xml
+│   ├── coverage-final.json
+│   ├── lcov-report/
+│   └── lcov.info
 ├── models/
-│   └── Book.js
+│   └── Book.js                    # 📘 Mongoose model
+├── node_modules/
 ├── routes/
-│   └── bookRoutes.js
+│   └── bookRoutes.js              # 📌 All CRUD routes with Swagger docs
 ├── tests/
 │   ├── api/
-│   │   └── book.test.js
+│   │   └── book.test.js           # 🔍 API tests with Supertest
+│   ├── integration/               # 🤝 Optional integration tests
+│   ├── unit/                      # 🔬 Unit tests
 │   └── setup/
-│       └── db.js
-├── .env
+│       └── db.js                  # 🧪 Test DB setup
+├── .env                           # 🔐 Environment variables
 ├── .gitignore
+├── image.png                      # 🖼️ Screenshot or placeholder
+├── package-lock.json
 ├── package.json
-├── server.js
-└── README.md
+├── README.md
+├── server.js                      # 🚀 Entry point of app
+└── swagger.js                     # 📄 Swagger (OpenAPI) setup
+
 
 ```
 
@@ -206,5 +215,48 @@ my-api-server/
 npm run test          # run all tests
 npm run test:coverage # run tests with coverage report
 
-# Own-API-Server-keploy-fellowship
 
+🧪 API Testing with Keploy (AI Testing ✅)
+
+✅ Generated OpenAPI schema via Swagger (/api-docs-json)
+
+✅ Used curl commands to simulate user interaction
+
+✅ Keploy captured real-time API interactions
+
+✅ Successfully replayed and validated APIs with no test rejections
+
+📸 Keploy Test Report Screenshot
+![Input of curl commands and schema](./assets/sc1.png)
+![Primary Test case Genrating](./assets/sc2.png)
+![Keploy Agent Running in Background](./assets/sc3.png)
+![Test Drives](./assets/sc4.png)
+![Test Suits](./assets/sc5.png)
+![Test Suites Execution](./assets/sc6.png)
+![Test Report generation through mail](./assets/sc7.png)
+
+
+
+Keploy successfully captured & validated all endpoints without errors.
+
+
+🔁 CI/CD Pipeline Integration
+✅ Integrated Keploy into GitHub Actions
+
+✅ Runs on every push to main branch
+
+✅ Ensures API tests and schema validations pass
+
+📄 GitHub Actions CI Configuration
+See: ./.github/workflows/Keploy.yml
+
+🌐 OpenAPI Schema & Swagger
+✅ Swagger UI hosted at /api-docs
+
+![Swagger UI at http://localhost:5000/api-docs/ ](./assets/sc8.png)
+
+✅ Raw schema available at /api-docs-json
+
+Compatible with Postman / SwaggerHub / Keploy import
+
+# Own-API-Server-keploy-fellowship
