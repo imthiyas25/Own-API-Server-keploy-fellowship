@@ -1,0 +1,44 @@
+name: Run Keploy Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  keploy-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: 🔧 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'  # Change this if you use another version
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🚀 Start API Server in Background
+        run: |
+          nohup npm start &
+          sleep 10  # Give time for server to boot up
+
+      - name: 📥 Download Keploy Binary
+        run: |
+          curl -sL https://github.com/keploy/keploy/releases/latest/download/keploy_linux_amd64.tar.gz -o keploy.tar.gz
+          tar -xzf keploy.tar.gz
+          chmod +x keploy
+          sudo mv keploy /usr/local/bin/
+
+      - name: 🧪 Run Keploy Test Suite
+        env:
+          KEPLOY_API_KEY: ${{ secrets.KEPLOY_API_KEY }}
+        run: |
+          keploy test-suite \
+          --app=0813fcfe-fb0a-496e-8c79-452dfbb74322 \
+          --base-path http://localhost:5000/api/books \
+          --cloud

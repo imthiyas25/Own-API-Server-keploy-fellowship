@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'); 
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
@@ -10,7 +10,10 @@ app.use(express.json());
 // Routes
 app.use('/api/books', require('./routes/bookRoutes'));
 
-// Connect DB and start server only if not in test
+// Swagger Docs
+require('./swagger')(app); // 👈 Mounts Swagger UI and /api-docs-json
+
+// Connect DB and start server (skip during tests)
 if (process.env.NODE_ENV !== 'test') {
   mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -24,5 +27,5 @@ if (process.env.NODE_ENV !== 'test') {
     .catch(err => console.error(err));
 }
 
-// Export the app for testing
+// Export app for tests
 module.exports = app;
