@@ -218,7 +218,6 @@ npm run test:coverage # run tests with coverage report
 
 # Own-API-Server-keploy-fellowship
 
-<<<<<<< HEAD
 🧪 API Testing with Keploy (AI Testing ✅)
 
 ✅ Generated OpenAPI schema via Swagger (/api-docs-json)
@@ -264,5 +263,3 @@ See: ./.github/workflows/Keploy.yml
 Compatible with Postman / SwaggerHub / Keploy import
 
 # Own-API-Server-keploy-fellowship
-=======
->>>>>>> 3260842 (Updated README with latest changes)
