@@ -227,6 +227,7 @@ npm run test:coverage # run tests with coverage report
 ✅ Successfully replayed and validated APIs with no test rejections
 
 📸 Keploy Test Report Screenshot
+
 ![Input of curl commands and schema](./assets/sc1.png)
 ![Primary Test case Genrating](./assets/sc2.png)
 ![Keploy Agent Running in Background](./assets/sc3.png)
