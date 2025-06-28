@@ -1,0 +1,37 @@
+version: api.keploy.io/v1beta1
+kind: Mongo
+name: mock-books-connection
+spec:
+  metadata:
+    operation: '{ OpQuery flags: [], fullCollectionName: books.$cmd, numberToSkip: 0, numberToReturn: -1, query: {"find": "books"}, returnFieldsSelector: {} }'
+    type: config
+  requests:
+    - header:
+        length: 150
+        requestId: 123456789
+        responseTo: 0
+        Opcode: 2004
+      message:
+        flags: 0
+        collection_name: books
+        number_to_skip: 0
+        number_to_return: -1
+        query: '{"find":"books"}'
+        return_fields_selector: ""
+  responses:
+    - header:
+        length: 250
+        requestId: 1
+        responseTo: 123456789
+        Opcode: 1
+      message:
+        response_flags: 8
+        cursor_id: 0
+        starting_from: 0
+        number_returned: 1
+        documents:
+          - '{"_id": {"$oid": "6654e3f91c53e946a6c88888"}, "title": "The Alchemist", "author": "Paulo Coelho", "year": {"$numberInt": "1988"}}'
+      read_delay: 100000
+  created: 1743599485
+  reqTimestampMock: 2025-06-27T11:30:00.000000000Z
+  resTimestampMock: 2025-06-27T11:30:00.100000000Z
