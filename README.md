@@ -234,6 +234,36 @@ See: `.github/workflows/keploy.yml`
 
 ---
 
+
+## ✅ Task 2: API Testing using Keploy Chrome Extension
+
+As part of the Keploy Fellowship Season 4 assessment:
+
+### 🔹 What I Did
+
+- ✅ Cloned and set up the [Keploy Chrome Extension](https://github.com/keploy/extension)
+- ✅ Loaded it in Chrome via `chrome://extensions` using Developer Mode
+- ✅ Used the extension to **record API calls** while interacting with the app
+- ✅ Stopped recording and clicked on **Generate Tests**
+- ✅ Automatically redirected to [https://app.keploy.io](https://app.keploy.io) where tests were generated successfully
+
+### 🔹 Screenshot Evidence
+
+> 📸 Screenshots captured during the process have been added to the `assets/` folder.
+
+- ![Keploy Extension Recording](./assets/sc10.png)
+- ![Keploy Generated Tests](./assets/sc12.png)
+- ![Keploy Test Suites](./assets/sc11.png)
+
+---
+
+### 🔗 Helpful Links
+
+- [Keploy Chrome Extension GitHub](https://github.com/keploy/extension)
+- [Keploy Test Dashboard](https://app.keploy.io)
+
+
+
 ## 🙌 Author
 
 Built with ❤️ as part of [Keploy API Fellowship](https://keploy.io)
